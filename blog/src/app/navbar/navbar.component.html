@@ -1,0 +1,30 @@
+<nav class="navbar fixed-top bg-black navbar-expand-lg text-light"></nav>
+  <div class="container-fluid">
+    <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item text-light">
+          <a class="nav-link active text-light" aria-current="page" routerLink="">Main Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" routerLink="/aboutme">About Me</a>
+        </li>
+        <!-- Visa "Create Post" endast om användaren är admin -->
+        <li *ngIf="isAdmin" class="nav-item text-light">
+          <a class="nav-link text-light" aria-current="page" routerLink="/addPost">Create Post</a>
+        </li>
+      </ul>
+
+      <a class="navbar-brand fs-3 text-light" href="#">blog</a>
+      
+      <div class="form-check form-switch ms-auto">
+        <input class="form-check-input custom-checkbox" type="checkbox" id="roleSwitch" (change)="toggleRole()" [checked]="isAdmin" />
+        <label class="form-check-label p-1" for="roleSwitch">
+          Admin
+        </label>
+      </div>
+    </div>
+  </div>

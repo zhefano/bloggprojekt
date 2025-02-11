@@ -18,7 +18,7 @@ export class ApiService {
   }
 
   private initializePosts() {
-    
+   
     this.allPosts = this.storageService.getItem<any[]>(this.storageKey) || [];
     this.saveToLocalStorage();
   }
