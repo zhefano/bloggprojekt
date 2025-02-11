@@ -1,0 +1,10 @@
+<div class="main-page">
+  <h1>Latest article</h1>
+  <div class="articles-grid">
+    <div class="article-card" *ngFor="let article of allPosts">
+      <img [src]="article.thumbnailUrl" alt="Article Thumbnail">
+      <h2>{{ article.title }}</h2>
+      <button (click)="navigateToDetails(article.id)">read more</button>
+    </div>
+  </div>
+</div>
