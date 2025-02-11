@@ -1,0 +1,23 @@
+<div class="aboutme-container">
+  <div class="user-info">
+    <img [src]="user.profileImageUrl" alt="Profile Image" class="profile-image" />
+    <div class="content">
+      <h1>About</h1>
+      <h2>{{ user.name }}</h2>
+      <p><strong>Profession:</strong> {{ user.profession }}</p>
+      <h2>Biography</h2>
+      <p>{{ user.bio }}</p>
+      <h2>Contact Information</h2>
+      <ul>
+        <li>
+          Email:
+          <a href="mailto:{{ user.contactInfo.email }}">{{ user.contactInfo.email }}</a>
+        </li>
+        <li>Phone: {{ user.contactInfo.phone }}</li>
+        <li>Address: {{ user.contactInfo.address }}</li>
+      </ul>
+      <!-- Lägg till kontaktformuläret -->
+      <app-form></app-form>
+    </div>
+  </div>
+</div>
