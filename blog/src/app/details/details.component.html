@@ -1,0 +1,74 @@
+<div class="con-body ">
+  <div class="container">
+    <button class="goBackBtn" routerLink=""><i class="fa-solid fa-arrow-left"></i></button>
+    <h1 class="card-title p-2">{{ blogPost.title }}</h1>
+    <div class="card">
+      <img [src]="blogPost.thumbnailUrl" alt="Blog Image" class="card-img-top"
+        style="height: 500px; object-fit: cover;" />
+
+      <div class="card-body">
+        <div class="d-flex align-items-center text-muted mb-3">
+          <small class="me-auto">{{ blogPost.creationDate }}</small>
+          <div>
+            <i class="bi bi-hand-thumbs-up text-success me-2"></i>{{ blogPost.likes }}
+            <i class="bi bi-hand-thumbs-down text-danger ms-3 me-2"></i>{{ blogPost.dislikes }}
+          </div>
+        </div>
+        <div>{{blogPost.body}} </div>
+        <p class="card-text">{{ blogPost.content }}</p>
+        <div class="d-flex  align-items-center">
+          <div class="d-flex align-items-center justify-content-center  w-100">
+            <div style="flex: 1;" class="d-flex justify-content-center align-items-center gap-2">
+              <div (click)="likePost()" class="d-flex">
+                <i class="fa-solid fa-thumbs-up fs-5 mx-2"
+                  [ngClass]="{'d-block': blogPost.isLiked, 'd-none': !blogPost.isLiked}"></i>
+                <i class="fa-regular fa-thumbs-up fs-5 mx-2"
+                  [ngClass]="{'d-block': !blogPost.isLiked, 'd-none': blogPost.isLiked}"></i>
+                {{ blogPost.likes }}
+              </div>
+            </div>
+
+            <div style="flex: 1;" class="d-flex justify-content-center align-items-center gap-2">
+              <div (click)="dislikePost()" class="d-flex">
+                <i class="fa-solid fa-thumbs-down fs-5 mx-2"
+                  [ngClass]="{'d-block': blogPost.isDisLiked, 'd-none': !blogPost.isDisLiked}"></i>
+                <i class="fa-regular fa-thumbs-down fs-5 mx-2"
+                  [ngClass]="{'d-block': !blogPost.isDisLiked, 'd-none': blogPost.isDisLiked}"></i>
+                {{ blogPost.dislikes }}
+              </div>
+            </div>
+
+            <div style="flex: 1; " class="d-flex justify-content-center align-items-center gap-2"><i
+                class="fa-regular fa-message fs-5"></i>
+              <div>{{totalComments}}</div>
+            </div>
+            <div style="flex: 1; " class="d-flex justify-content-center align-items-center gap-2"><i
+                class="fa-solid fa-share fs-5"></i>
+              <div>{{blogPost.likes}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 container-2" style="overflow: hidden;">
+      <h3>Comments</h3>
+      <div class="input-group my-2">
+        <input type="text" class="form-control" placeholder="Add a comment..." [(ngModel)]="newComment" />
+        <button class="btn btn-dark" (click)="addComment()"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex align-items-center" *ngFor="let comment of blogPost.comments">
+          <div>
+            <img height="50"
+              src="https://plus.unsplash.com/premium_photo-1738637233381-6f857ce13eb9?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="">
+          </div>
+          <div class="p-2 comment rounded-4">
+            {{ comment }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
