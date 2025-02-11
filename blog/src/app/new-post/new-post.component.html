@@ -1,0 +1,60 @@
+<div class="d-flex container justify-content-center align-items-center pt-5">
+  <div
+    class="post-form-container shadow-sm rounded-4 p-4"
+    style="width: 100%; max-width: 900px;"
+  >
+    <h2 class="text-center mb-4">Create a New Post</h2>
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+      <div class="form-group mb-3">
+        <label for="title" class="form-label fw-semibold">Title</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control rounded-3"
+          required
+          [(ngModel)]="post.title"
+          name="title"
+          placeholder="Enter the post title"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="thumbnailUrl" class="form-label fw-semibold">Thumbnail URL</label>
+        <input
+          type="text"
+          id="thumbnailUrl"
+          class="form-control rounded-3"
+          required
+          [(ngModel)]="post.thumbnailUrl"
+          name="thumbnailUrl"
+          placeholder="Paste the image URL here"
+        />
+      </div>
+
+  
+      <div class="form-group mb-4">
+        <label for="body" class="form-label fw-semibold">Body</label>
+        <textarea
+          id="body"
+          class="form-control rounded-3"
+          rows="6"
+          required
+          [(ngModel)]="post.body"
+          name="body"
+          placeholder="Write your post content here"
+        ></textarea>
+      </div>
+
+     
+      <div class="d-flex justify-content-end">
+        <button
+          type="submit"
+          class="btn btn-dark btn-lg px-4 py-2 rounded-3 fw-bold"
+          [disabled]="!postForm.form.valid"
+        >
+          <i class="fa-solid fa-paper-plane me-2"></i>Post
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
